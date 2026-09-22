@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+  <script>
+    // SEGURANÇA: Se não estiver logado, volta para a pasta de login
+    if (!sessionStorage.getItem('usuarioLogado')) {
+      alert('Acesso negado. Por favor, faça login.');
+      window.location.href = '../login/index.html';
+    }
+  </script>
+
+  <div class="card">
+    <h1>Bem-vindo ao Dashboard!</h1>
+    <p>Olá, <strong id="nomeUsuario">Usuário</strong>.</p>
+    <button class="btn-logout" id="btnLogout">Sair do Sistema</button>
+  </div>
+
+  <script>
+    // Exibe o nome do usuário logado
+    const dadosSession = sessionStorage.getItem('usuarioLogado');
+    if (dadosSession) {
+      const objetoUsuario = JSON.parse(dadosSession);
+      document.getElementById('nomeUsuario').textContent = objetoUsuario.nome || objetoUsuario.email;
+    }
+
+    // Evento de Logout
+    document.getElementById('btnLogout').addEventListener('click', function () {
+      sessionStorage.removeItem('usuarioLogado');
+      window.location.href = '../login/index.html'; // Volta para o login
+    });
+  </script>
+</body>
+
+</html>
