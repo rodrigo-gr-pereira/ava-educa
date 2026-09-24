@@ -1,35 +1,44 @@
+<!-- login/login.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8">
-  <title>Login</title>
-  <!-- Volta uma pasta para achar a pasta css -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AVA-EDUCA - Login</title>
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="login.css">
 </head>
 
 <body>
   <div class="login-container">
-    <h2>Efetuar Login</h2>
-    <form id="loginForm">
-      <div class="form-group">
-        <label for="email">E-mail:</label>
-        <input type="email" id="email" required>
+    <form id="login-form">
+      <h2>Acessar AVA-EDUCA</h2>
+
+      <!-- Mensagem de erro oculta por padrão -->
+      <div id="error-message" class="error-box hidden">
+        Email ou senha incorretos. Tente novamente.
       </div>
-      <div class="form-group">
-        <label for="password">Senha:</label>
-        <input type="password" id="password" required>
+
+      <div class="input-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" required placeholder="seu@email.com">
       </div>
-      <button type="submit" id="btnEntrar">Entrar</button>
+
+      <div class="input-group">
+        <label for="password">Senha</label>
+        <input type="password" id="password" required placeholder="Sua senha">
+      </div>
+
+      <button type="submit" id="btn-entrar">Entrar</button>
+
+      <a href="#" id="forgot-password">Esqueceu sua senha?</a>
     </form>
-    <br>
-    <a href="#" id="forgotPassword">Esqueceu sua senha?</a>
-    <div id="feedbackErro" class="error-message">Usuário ou senha inválidos.</div>
   </div>
 
-  <!-- Volta uma pasta para achar o auth.js e o app.js dentro de js/ -->
-  <script src="js/auth.js"></script>
-  <script src="js/app.js"></script>
+  <!-- Importação dos scripts na ordem correta -->
+  <script src="../js/auth.js"></script>
+  <script src="login.js"></script>
 </body>
 
 </html>

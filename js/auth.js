@@ -1,13 +1,13 @@
-// Função global simulando a validação descrita no RF08
+// js/auth.js
 function login(usuario, senha) {
-    // Exemplo de credenciais válidas para teste
-    if (usuario === "teste@email.com" && senha === "123456") {
+    // Exemplo de validação mockada (substitua pela sua listagem real de usuários se necessário)
+    if (usuario === "admin@educa.com" && senha === "123456") {
         return {
-            nome: "Usuário Teste",
+            id: 1,
+            nome: "Administrador",
             email: usuario,
-            token: "abc123xyz"
+            perfil: "coordenador"
         };
     }
-    // Retorna null ou false caso os dados estejam incorretos
-    return null; 
+    return null; // Retorna null se as credenciais estiverem incorretas
 }
