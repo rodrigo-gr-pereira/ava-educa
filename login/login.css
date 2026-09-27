@@ -1,3 +1,16 @@
+/* Garante que a página ocupe 100% da altura do navegador e centralize o conteúdo */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f1f5f9; /* Um fundo cinza claro sutil */
+    display: flex;
+    justify-content: center; /* Centraliza na horizontal */
+    align-items: center;     /* Centraliza na vertical */
+    min-height: 100vh;       /* Ocupa toda a altura da janela visual */
+    box-sizing: border-box;
+}
+
 .login-container {
     display: flex;
     justify-content: center;
@@ -65,3 +78,5 @@ button:hover {
     color: #555;
     font-size: 14px;
 }
+
+
