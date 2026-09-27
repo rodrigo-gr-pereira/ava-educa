@@ -1,90 +1,104 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+/* Reset básico e tipografia */
+/*body {
     margin: 0;
+    font-family: Arial, sans-serif;
+    padding-top: 60px; /* Evita que o conteúdo da página fique escondido sob o cabeçalho fixo */
+/*
+
+/* Atualização do layout para comportar a sidebar lateral */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    padding-top: 60px; /* Altura do cabeçalho */
+    padding-left: 240px; /* Largura da sidebar para o conteúdo não ficar por baixo */
+    background-color: #f8fafc;
 }
 
-.login-container {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 320px;
-}
-
-h2 {
-    margin-top: 0;
-    color: #333;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #555;
-}
-
-input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+/* Estrutura da Sidebar Lateral */
+.sidebar {
+    position: fixed;
+    top: 60px; /* Começa logo abaixo do cabeçalho */
+    left: 0;
+    width: 240px;
+    height: calc(100vh - 60px);
+    background-color: #334155; /* Tom complementar ao cabeçalho */
+    padding: 20px 0;
     box-sizing: border-box;
-    transition: border-color 0.3s;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 999;
 }
 
-input:focus {
-    border-color: #007bff;
-    outline: none;
-}
-
-/* Classe aplicada via JS em caso de erro */
-input.input-error {
-    border-color: #dc3545;
-    background-color: #fff8f8;
-}
-
-button {
+/* Botões/Links de Navegação */
+.nav-btn {
+    display: block;
     width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-a {
-    color: #007bff;
+    padding: 12px 20px;
+    color: #cbd5e1;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 1rem;
+    border: none;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: background 0.2s, color 0.2s;
 }
 
-a:hover {
-    text-decoration: underline;
+.nav-btn:hover:not(:disabled) {
+    background-color: #475569;
+    color: #ffffff;
 }
 
-.error-message {
-    color: #dc3545;
-    background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
-    padding: 10px;
-    border-radius: 4px;
-    margin-top: 15px;
-    display: none;
-    font-size: 14px;
+/* Estado Desabilitado (Botão Cursos) */
+.nav-btn:disabled {
+    color: #64748b;
+    cursor: not-allowed;
+    background-color: transparent;
 }
 
+/* Botão Sair com destaque opcional */
+.nav-btn-exit {
+    margin-top: auto; /* Empurra o botão Sair para o final da sidebar */
+    border-top: 1px solid #475569;
+    padding-top: 15px;
+}
+
+
+
+
+/* Estrutura do Toolbar / Cabeçalho */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #1e293b; /* Tom escuro elegante */
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between; /* Alinha o nome à esquerda e o usuário à direita */
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.system-name {
+    font-size: 1.25rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-name {
+    font-size: 0.95rem;
+    font-weight: 500;
+}

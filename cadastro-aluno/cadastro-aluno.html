@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - AVA Educa</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+  <!-- Cabeçalho do Sistema -->
+  <header class="main-header">
+    <div class="system-name">AVA-EDUCA+</div>
+    <div class="user-profile">
+      <span id="headerUserName" class="user-name">Carregando...</span>
+    </div>
+  </header>
+
+  <!-- Menu de Navegação Lateral -->
+  <nav class="sidebar">
+    <!-- Caminhos relativos partindo de /dashboard ou /cadastro-aluno -->
+    <a href="../dashboard/dashboard.html" class="nav-btn">Dashboard</a>
+
+    <!-- Botão desabilitado conforme requisito -->
+    <button class="nav-btn" disabled>Cursos</button>
+
+    <a href="../cadastro-aluno/cadastro-aluno.html" class="nav-btn">Cadastro de Alunos</a>
+
+    <!-- Botão de Sair com ID para capturar o clique no JS -->
+    <button id="btnSair" class="nav-btn nav-btn-exit">Sair</button>
+  </nav>
+
+  <!-- Conteúdo Principal da Tela -->
+  <main class="dashboard-content">
+    <h1>Bem-vindo à sua Dashboard</h1>
+  </main>
+
+  <script src="dashboard.js"></script>
+</body>
+
+</html>

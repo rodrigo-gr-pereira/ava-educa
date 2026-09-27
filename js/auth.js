@@ -1,13 +1,16 @@
-// Função global simulando a validação descrita no RF08
+/**
+ * Valida as credenciais do usuário com base nos dados do sistema.
+ * (Certifique-se de que listagem-usuarios.js declara a variável global correspondente)
+ */
 function login(usuario, senha) {
-    // Exemplo de credenciais válidas para teste
-    if (usuario === "teste@email.com" && senha === "123456") {
-        return {
-            nome: "Usuário Teste",
-            email: usuario,
-            token: "abc123xyz"
-        };
+    // Caso sua listagem use uma variável global com outro nome, ajuste aqui (ex: listaUsuarios)
+    if (typeof usuarios === 'undefined') {
+        console.error("A lista de usuários não foi carregada corretamente.");
+        return null;
     }
-    // Retorna null ou false caso os dados estejam incorretos
-    return null; 
+
+    // Busca o usuário correspondente ao e-mail e senha informados
+    const usuarioEncontrado = usuarios.find(user => user.email === usuario && user.senha === senha);
+    
+    return usuarioEncontrado || null;
 }
