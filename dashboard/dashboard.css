@@ -1,0 +1,78 @@
+/* dashboard/dashboard.css */
+
+.dashboard-content {
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.dashboard-header {
+    margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+    margin: 0 0 8px 0;
+    color: #1e293b;
+}
+
+.dashboard-header p {
+    margin: 0;
+    color: #64748b;
+}
+
+/* Grid Layout para os Cards */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* Estilo Individual do Card */
+.course-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.course-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+}
+
+.course-title {
+    font-size: 1.1rem;
+    color: #1e293b;
+    margin: 0 0 15px 0;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.course-dates {
+    border-top: 1px solid #f1f5f9;
+    padding-top: 12px;
+    font-size: 0.85rem;
+    color: #64748b;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.date-row strong {
+    color: #475569;
+}
+
+/* Mensagem de Estado Vazio */
+.no-courses {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    background-color: #f1f5f9;
+    color: #64748b;
+    border-radius: 8px;
+    border: 2px dashed #cbd5e1;
+}
