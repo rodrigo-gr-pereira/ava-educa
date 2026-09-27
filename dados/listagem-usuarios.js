@@ -6,12 +6,12 @@ const usuarios = [
         id: 1,
         nome: "Fulano de Tal",
         email: "teste@educa.com",
-        senha: "123"
+        senha: "123456"
     },
     {
         id: 2,
         nome: "Ana Souza",
         email: "ana@educa.com",
-        senha: "abc"
+        senha: "abc123"
     }
 ];
