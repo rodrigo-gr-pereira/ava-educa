@@ -4,14 +4,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard - AVA Educa</title>
+  <title>Cadastro de Alunos - AVA Educa</title>
   <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="cadastro-aluno.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+  <script src="../js/app.js" defer></script>
+  <script src="../js/Aluno.js" defer></script>
+  <script src="../js/alunos.js" defer></script>
+  <script src="cadastro-aluno.js" defer></script>
 </head>
 
 <body>
-
-  <!-- Cabeçalho do Sistema -->
   <header class="main-header">
     <div class="system-name">AVA-EDUCA+</div>
     <div class="user-profile">
@@ -19,23 +22,22 @@
     </div>
   </header>
 
-  <!-- Menu de Navegação Lateral dentro de cadastro-aluno.html -->
-  <nav class="sidebar">
-    <!-- Caminhos corretos saindo de cadastro-aluno e indo para as outras pastas -->
-    <a href="../dashboard/dashboard.html" class="nav-btn">Dashboard</a>
-    <button class="nav-btn" disabled>Cursos</button>
-    <a href="../cadastro-aluno/cadastro-aluno.html" class="nav-btn">Cadastro de Alunos</a>
+  <aside class="sidebar">
+    <nav class="sidebar-nav">
+      <a href="../dashboard/dashboard.html" class="nav-btn">Dashboard</a>
+      <button type="button" class="nav-btn" disabled>Cursos</button>
+      <a href="../cadastro-aluno/cadastro-aluno.html" class="nav-btn">Cadastro de Alunos</a>
+      <button type="button" id="btnSair" class="nav-btn nav-btn-exit">Sair</button>
+    </nav>
+  </aside>
 
-    <!-- Botão Sair com o ID correto -->
-    <button id="btnSair" class="nav-btn nav-btn-exit">Sair</button>
-  </nav>
-
-  <!-- Conteúdo Principal da Tela -->
   <main class="dashboard-content">
-    <h1>Bem-vindo à sua Dashboard</h1>
-    <form id="formCadastroAluno" class="student-form" novalidate>
+    <h1>Cadastro de Aluno</h1>
+    <p class="subtitle">Preencha todas as informações obrigatórias para registrar um novo estudante.</p>
 
-      <!-- Seção de Dados Pessoais -->
+    <div id="feedbackMessage" class="feedback-banner" style="display: none;"></div>
+
+    <form id="formCadastroAluno" class="student-form" novalidate>
       <fieldset>
         <legend>Dados Pessoais</legend>
 
@@ -59,7 +61,6 @@
 
           <div class="form-group">
             <label for="dataNascimento">Data de Nascimento *</label>
-            <!-- O input date captura o valor para validação lógica de limites -->
             <input type="date" id="dataNascimento" required>
           </div>
         </div>
@@ -82,7 +83,6 @@
         </div>
       </fieldset>
 
-      <!-- Seção de Endereço -->
       <fieldset>
         <legend>Endereço</legend>
 
@@ -124,21 +124,11 @@
         </div>
       </fieldset>
 
-      <!-- Ação do Formulário -->
       <div class="form-actions">
         <button type="submit" id="btnSalvar" class="btn-primary">Salvar</button>
       </div>
     </form>
-
   </main>
-
-  <!-- Importação do Moment.js via CDN -->
-  <script src="https://cloudflare.com"></script>
-
-  <!-- Seus scripts de lógica vêm logo após -->
-  <script src="../js/app.js" defer></script>
-  <script src="cadastro-aluno.js" defer></script>
-
 </body>
 
 </html>
