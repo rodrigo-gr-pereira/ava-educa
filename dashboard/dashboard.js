@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const usuarioLogadoSessao = sessionStorage.getItem('usuarioLogado');
 
     if (!usuarioLogadoSessao) {
-        window.location.href = '../login/login.html';
+        window.location.href = '/login/login.html';
         return;
     }
 
@@ -22,10 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnSair) {
         btnSair.addEventListener('click', (event) => {
             event.preventDefault();
-            // Remove o usuário da sessão
             sessionStorage.removeItem('usuarioLogado');
-            // Redireciona para a tela de login
-            window.location.href = '../login/login.html';
+            window.location.href = '/login/login.html';
         });
     }
 

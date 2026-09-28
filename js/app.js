@@ -1,2 +1,13 @@
-// Redireciona o usuário para a tela de login ao abrir o index
-window.location.href = 'login/login.html';
+const currentPath = window.location.pathname;
+const isRootPage = currentPath === '/' || currentPath.endsWith('/index.html');
+const isProtectedPage = currentPath.includes('/dashboard/') || currentPath.includes('/cadastro-aluno/');
+
+if (isRootPage) {
+    window.location.href = '/login/login.html';
+    return;
+}
+
+if (isProtectedPage && !sessionStorage.getItem('usuarioLogado')) {
+    window.location.href = '/login/login.html';
+    return;
+}

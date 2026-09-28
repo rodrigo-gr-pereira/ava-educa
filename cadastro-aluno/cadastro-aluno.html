@@ -33,9 +33,112 @@
   <!-- Conteúdo Principal da Tela -->
   <main class="dashboard-content">
     <h1>Bem-vindo à sua Dashboard</h1>
+    <form id="formCadastroAluno" class="student-form" novalidate>
+
+      <!-- Seção de Dados Pessoais -->
+      <fieldset>
+        <legend>Dados Pessoais</legend>
+
+        <div class="form-group">
+          <label for="nomeCompleto">Nome Completo *</label>
+          <input type="text" id="nomeCompleto" required minlength="4" maxlength="80"
+            placeholder="Digite o nome completo">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="genero">Gênero *</label>
+            <select id="genero" required>
+              <option value="" disabled selected>Selecione o gênero...</option>
+              <option value="Masculino">Masculino</option>
+              <option value="Feminino">Feminino</option>
+              <option value="Outro">Outro</option>
+              <option value="Não informado">Prefiro não responder</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="dataNascimento">Data de Nascimento *</label>
+            <!-- O input date captura o valor para validação lógica de limites -->
+            <input type="date" id="dataNascimento" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cpf">CPF (Apenas números) *</label>
+            <input type="number" id="cpf" required placeholder="00000000000">
+          </div>
+
+          <div class="form-group">
+            <label for="telefone">Telefone (Apenas números) *</label>
+            <input type="number" id="telefone" required placeholder="DDD999999999">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-mail *</label>
+          <input type="email" id="email" required placeholder="exemplo@email.com">
+        </div>
+      </fieldset>
+
+      <!-- Seção de Endereço -->
+      <fieldset>
+        <legend>Endereço</legend>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cep">CEP (Apenas números) *</label>
+            <input type="number" id="cep" required placeholder="00000000">
+          </div>
+          <div class="form-group flex-2">
+            <label for="logradouro">Logradouro *</label>
+            <input type="text" id="logradouro" required placeholder="Rua, Avenida, etc.">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="numero">Número *</label>
+            <input type="number" id="numero" required placeholder="123">
+          </div>
+          <div class="form-group flex-2">
+            <label for="complemento">Complemento</label>
+            <input type="text" id="complemento" placeholder="Apto, Bloco, Casa (Opcional)">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="bairro">Bairro *</label>
+            <input type="text" id="bairro" required placeholder="Bairro">
+          </div>
+          <div class="form-group">
+            <label for="cidade">Cidade *</label>
+            <input type="text" id="cidade" required placeholder="Cidade">
+          </div>
+          <div class="form-group">
+            <label for="estado">Estado *</label>
+            <input type="text" id="estado" required placeholder="Estado">
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Ação do Formulário -->
+      <div class="form-actions">
+        <button type="submit" id="btnSalvar" class="btn-primary">Salvar</button>
+      </div>
+    </form>
+
   </main>
 
-  <script src="cadastro-aluno.js"></script>
+  <!-- Importação do Moment.js via CDN -->
+  <script src="https://cloudflare.com"></script>
+
+  <!-- Seus scripts de lógica vêm logo após -->
+  <script src="../js/app.js" defer></script>
+  <script src="cadastro-aluno.js" defer></script>
+
 </body>
 
 </html>
