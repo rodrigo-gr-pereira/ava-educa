@@ -4,10 +4,9 @@ const isProtectedPage = currentPath.includes('/dashboard/') || currentPath.inclu
 
 if (isRootPage) {
     window.location.href = '/login/login.html';
-    return;
+  
 }
 
 if (isProtectedPage && !sessionStorage.getItem('usuarioLogado')) {
     window.location.href = '/login/login.html';
-    return;
 }

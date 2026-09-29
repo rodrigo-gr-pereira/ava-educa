@@ -14,6 +14,21 @@ body {
     background-color: #f8fafc;
 }
 
+:root {
+    --primary-color: #2563eb;       /* Azul Principal Interativo */
+    --primary-hover: #1d4ed8;       /* Azul Escuro para Hover */
+    --bg-main: #f8fafc;             /* Fundo da Área de Conteúdo */
+    --bg-card: #ffffff;             /* Fundo do Card do Formulário */
+    --text-main: #0f172a;           /* Texto Principal */
+    --text-muted: #64748b;          /* Texto Secundário / Subtítulos */
+    --border-color: #e2e8f0;        /* Borda Padrão */
+    --input-focus: #3b82f6;         /* Borda de Input Selecionado */
+    --input-bg: #ffffff;            /* Fundo dos Inputs */
+    --error-color: #ef4444;         /* Vermelho de Alerta */
+    --radius: 10px;                 /* Arredondamento Padrão */
+    --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 /* Estrutura da Sidebar Lateral */
 .sidebar {
     position: fixed;
@@ -101,4 +116,19 @@ body {
 .user-name {
     font-size: 0.95rem;
     font-weight: 500;
+}
+
+/* Botão Sair - Agora idêntico aos botões comuns da sidebar */
+.btn-sair {
+    width: 100%;
+    background: transparent;
+    color: #94a3b8;
+    border: none;
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }

@@ -7,11 +7,16 @@
   <title>Cadastro de Alunos - AVA Educa</title>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="cadastro-aluno.css">
+
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+  <script src="../dados/listagem-alunos.js" defer></script> <!-- Carrega o array 'listagemAlunos' primeiro -->
+
+  <!-- Scripts de Lógica e Modelos -->
   <script src="../js/app.js" defer></script>
-  <script src="../js/Aluno.js" defer></script>
-  <script src="../js/alunos.js" defer></script>
-  <script src="cadastro-aluno.js" defer></script>
+  <script src="../js/Aluno.js" defer></script> <!-- Classe Aluno -->
+  <script src="../js/alunos.js" defer></script> <!-- Função cadastrarAluno -->
+  <script src="cadastro-aluno.js" defer></script> <!-- Controlador da tela -->
 </head>
 
 <body>
@@ -22,12 +27,18 @@
     </div>
   </header>
 
-  <aside class="sidebar">
-    <nav class="sidebar-nav">
+  <aside>
+    <nav class="sidebar">
+      <!-- Caminhos relativos partindo de /dashboard ou /cadastro-aluno -->
       <a href="../dashboard/dashboard.html" class="nav-btn">Dashboard</a>
-      <button type="button" class="nav-btn" disabled>Cursos</button>
+
+      <!-- Botão desabilitado conforme requisito -->
+      <button class="nav-btn" disabled>Cursos</button>
+
       <a href="../cadastro-aluno/cadastro-aluno.html" class="nav-btn">Cadastro de Alunos</a>
-      <button type="button" id="btnSair" class="nav-btn nav-btn-exit">Sair</button>
+
+      <!-- Botão de Sair com ID para capturar o clique no JS -->
+      <button id="btnSair" class="nav-btn nav-btn-exit">Sair</button>
     </nav>
   </aside>
 

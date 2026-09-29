@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Injeta o nome do usuário no cabeçalho
     const headerUserName = document.getElementById('headerUserName');
     if (headerUserName && usuario.nome) {
-        headerUserName.textContent = usuario.nome;
+        headerUserName.textContent = `Olá, ${usuario.nome}`;
     }
 
     // 3. Funcionalidade do Botão Sair (Movido para cima para garantir a execução)

@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const usuario = JSON.parse(usuarioLogadoSessao);
     const headerUserName = document.getElementById('headerUserName');
     if (headerUserName && usuario.nome) {
-        headerUserName.textContent = usuario.nome;
+      headerUserName.textContent = `Olá, ${usuario.nome}`;
     }
 
     if (btnSair) {
@@ -144,33 +144,35 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+               // Padrão de data tratado pelo Moment.js
         const dataFormatadaBR = dataNascimento.format('DD/MM/YYYY');
 
+        // CORREÇÃO AQUI: Passando os parâmetros de forma direta e limpa para o construtor
         const novoAluno = new Aluno(
-            nomeCompleto,
-            genero,
-            dataFormatadaBR,
-            cpf,
-            telefone,
+            nomeCompleto, 
+            genero, 
+            dataFormatadaBR, 
+            cpf, 
+            telefone, 
             email,
-            cep,
-            logradouro,
-            numero,
-            complemento,
-            bairro,
-            cidade,
+            cep, 
+            logradouro, 
+            numero, 
+            complemento, 
+            bairro, 
+            cidade, // Corrigido (estava "city = cidade" e causava erro silencioso)
             estado
         );
 
-        const salvoComSucesso = cadastrarAluno(novoAluno);
+        // Dispara a função assíncrona baseada em Promise
+        cadastrarAluno(novoAluno)
+            .then((mensagemSucesso) => {
+                mostrarFeedback(`Sucesso! ${mensagemSucesso}`, 'success');
+                form.reset(); // Limpa os campos do formulário para o próximo registro
+            })
+            .catch((mensagemErro) => {
+                mostrarFeedback(`Erro: ${mensagemErro}`, 'error');
+            });
 
-        if (salvoComSucesso) {
-            mostrarFeedback(`Sucesso! O estudante "${novoAluno.nomeCompleto}" foi registrado com êxito.`, 'success');
-            form.reset();
-        } else {
-            mostrarFeedback('Erro: Ocorreu uma falha interna ao tentar cadastrar o aluno.', 'error');
-        }
-
-        console.log('Objeto Aluno criado com sucesso:', novoAluno);
     });
 });

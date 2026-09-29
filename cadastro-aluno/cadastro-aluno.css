@@ -1,3 +1,4 @@
+
 /* Estilo Base do Banner de Feedback */
 .feedback-banner {
     padding: 15px 20px;
@@ -23,6 +24,222 @@
     background-color: #fee2e2;
     color: #991b1b;
     border: 1px solid #ef4444;
+}
+
+/* ==========================================================================
+   ESTRUTURA DA ÁREA DE CONTEÚDO
+   ========================================================================== */
+.content-area {
+    padding: 40px;
+    background-color: var(--bg-main);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--text-main);
+}
+
+.content-area h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 0 0 6px 0;
+    letter-spacing: -0.5px;
+}
+
+.content-area .subtitle {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin: 0 0 35px 0;
+}
+
+/* ==========================================================================
+   CARD DO FORMULÁRIO (STUDENT FORM)
+   ========================================================================== */
+.student-form {
+    max-width: 850px;
+    background-color: var(--bg-card);
+    padding: 35px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.02), 
+                0 8px 10px -6px rgba(0, 0, 0, 0.02);
+}
+
+/* Agrupamento por Fieldset */
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0 0 35px 0;
+}
+
+fieldset:last-of-type {
+    margin-bottom: 20px;
+}
+
+/* Título de cada Seção */
+legend {
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--border-color);
+    width: 100%;
+    padding-bottom: 10px;
+    margin-bottom: 22px;
+}
+
+/* ==========================================================================
+   ORGANIZAÇÃO DE LINHAS E COLUNAS (GRID & FLEX)
+   ========================================================================== */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+    flex: 1;
+}
+
+/* Grid Inteligente para Linhas do Formulário */
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* Ajuste específico para misturar tamanhos na mesma linha (ex: CEP pequeno e Logradouro grande) */
+@media (min-width: 600px) {
+    .form-row-unequal {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 20px;
+    }
+    
+    .form-row-trio {
+        display: grid;
+        grid-template-columns: 2fr 2fr 1fr;
+        gap: 20px;
+    }
+}
+
+/* ==========================================================================
+   INPUTS, SELECTIONS E LABELS
+   ========================================================================== */
+label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #475569;
+    margin-bottom: 8px;
+}
+
+/* Inputs e selects unificados */
+input, select {
+    padding: 12px 14px;
+    font-size: 14.5px;
+    font-family: inherit;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background-color: var(--input-bg);
+    color: var(--text-main);
+    outline: none;
+    transition: var(--transition);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.01);
+}
+
+/* Placeholder discreto */
+input::placeholder {
+    color: #94a3b8;
+}
+
+/* Efeito de foco/seleção animado */
+input:focus, select:focus {
+    border-color: var(--input-focus);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12),
+                inset 0 1px 2px rgba(0, 0, 0, 0.01);
+    background-color: #ffffff;
+}
+
+/* Remove as setas no Chrome, Safari, Edge e Opera */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Remove as setas no Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* Estilização especial para inputs de data nativos */
+input[type="date"] {
+    color: #475569;
+}
+input[type="date"]:focus {
+    color: var(--text-main);
+}
+
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid var(--border-color);
+    padding-top: 25px;
+    margin-top: 10px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    padding: 14px 40px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+}
+
+.btn-primary:active {
+    transform: translateY(1px);
+}
+
+
+.feedback-banner {
+    max-width: 850px;
+    padding: 16px 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    font-size: 14.5px;
+    font-weight: 500;
+    line-height: 1.5;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.feedback-banner.success {
+    background-color: #f0fdf4;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+    box-shadow: 0 4px 6px -1px rgba(22, 101, 52, 0.05);
+}
+
+.feedback-banner.error {
+    background-color: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+    box-shadow: 0 4px 6px -1px rgba(153, 27, 27, 0.05);
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-12px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Animação suave de surgimento */

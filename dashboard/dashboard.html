@@ -5,57 +5,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard - AVA Educa</title>
-  <!-- Importa o estilo global primeiro, depois o específico da página -->
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="dashboard.css">
+  <script src="../js/app.js" defer></script>
+  <script src="../dados/listagem-cursos.js" defer></script>
+  <script src="../js/cursos.js" defer></script>
+  <script src="dashboard.js" defer></script>
 </head>
 
 <body>
-
-  <!-- Cabeçalho do Sistema -->
   <header class="main-header">
     <div class="system-name">AVA-EDUCA+</div>
     <div class="user-profile">
-      <!-- O nome será injetado dinamicamente via JavaScript -->
       <span id="headerUserName" class="user-name">Carregando...</span>
     </div>
   </header>
 
-  <main class="dashboard-content">
-    <h1>Bem-vindo à sua Dashboard</h1>
-    <!-- Conteúdo específico do dashboard entra aqui -->
-  </main>
-  <!-- Menu de Navegação Lateral -->
-  <nav class="sidebar">
-    <!-- Caminhos relativos partindo de /dashboard ou /cadastro-aluno -->
-    <a href="../dashboard/dashboard.html" class="nav-btn">Dashboard</a>
+  <aside>
+    <nav class="sidebar">
+      <!-- Caminhos relativos partindo de /dashboard ou /cadastro-aluno -->
+      <a href="../dashboard/dashboard.html" class="nav-btn">Dashboard</a>
 
-    <!-- Botão desabilitado conforme requisito -->
-    <button class="nav-btn" disabled>Cursos</button>
+      <!-- Botão desabilitado conforme requisito -->
+      <button class="nav-btn" disabled>Cursos</button>
 
-    <a href="../cadastro-aluno/cadastro-aluno.html" class="nav-btn">Cadastro de Alunos</a>
+      <a href="../cadastro-aluno/cadastro-aluno.html" class="nav-btn">Cadastro de Alunos</a>
 
-    <!-- Botão de Sair com ID para capturar o clique no JS -->
-    <button id="btnSair" class="nav-btn nav-btn-exit">Sair</button>
-  </nav>
+      <!-- Botão de Sair com ID para capturar o clique no JS -->
+      <button id="btnSair" class="nav-btn nav-btn-exit">Sair</button>
+    </nav>
+  </aside>
 
-  <!-- Conteúdo Principal da Tela -->
-  <!-- Conteúdo Principal -->
   <main class="dashboard-content">
     <div class="dashboard-header">
       <h1>Meus Cursos</h1>
       <p>Confira abaixo as turmas e cursos em que você atua.</p>
     </div>
 
-    <!-- Container onde o JS irá renderizar os cards dinamicamente -->
     <div id="cardsContainer" class="cards-grid">
-      <!-- Os cards serão injetados aqui -->
     </div>
   </main>
-  <!-- Scripts de controle -->
-  <script src="../dados/listagem-cursos.js"></script>
-  <script src="../js/cursos.js"></script>
-  <script src="dashboard.js"></script>
 </body>
 
 </html>

@@ -6,17 +6,30 @@ const alunosCadastrados = [];
  * @param {Aluno} aluno Objeto instanciado contendo todos os dados validados.
  */
 function cadastrarAluno(aluno) {
-    if (!aluno || !(aluno instanceof Aluno)) {
-        console.error("Erro: O dado fornecido não é uma instância válida da classe Aluno.");
-        return false;
-    }
 
-    // Armazena o objeto na lista simulada
-    alunosCadastrados.push(aluno);
-    
-    // Opcional: Atualiza também a sessionStorage para manter os dados mesmo atualizando a página
-    sessionStorage.setItem('alunosPersistidos', JSON.stringify(alunosCadastrados));
-
-    console.log("Módulo alunos.js -> Novo aluno registrado com sucesso:", aluno);
-    return true;
+return new Promise((resolve, reject) => {
+try {
+// Verifica se o array global ou o objeto de entrada falharam de alguma forma
+if (typeof listagemAlunos === 'undefined' || !aluno) {
+// Dispara o erro capturado pelo bloco catch
+throw new Error("Dependências ou parâmetros ausentes.");
 }
+
+// Inserção do aluno no array disponível no arquivo listagem-alunos.js
+listagemAlunos.push(aluno);
+
+// Atualiza a sessionStorage para manter o histórico caso a página mude ou atualize
+sessionStorage.setItem('listagemAlunosAtualizada', JSON.stringify(listagemAlunos));
+console.log("Sucesso: Aluno injetado no array 'listagemAlunos' ->", listagemAlunos);
+        
+// RETORNA UMA PROMISE RESOLVE COM A MENSAGEM EXIGIDA
+resolve("Aluno cadastrado com sucesso!");
+} catch (error) {
+console.error("Falha na operação de inserção:", error);
+            
+  // CASO HAJA ALGUM ERRO, RETORNA UMA PROMISE REJECT COM A MENSAGEM EXIGIDA
+ reject("Erro ao cadastrar o aluno");
+    }
+});
+}
+    
