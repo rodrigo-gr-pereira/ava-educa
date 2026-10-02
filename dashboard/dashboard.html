@@ -3,40 +3,45 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Dashboard</title>
+  <title>Dashboard - AVA Educa</title>
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="dashboard.css">
 </head>
 
 <body>
+  <nav class="navbar">
+    <h1>AVA Educa</h1>
+    <div>
+      Olá, <span id="user-name">Usuário</span> |
+      <button id="btn-logout" class="btn-primary" style="background:#e74c3c;">Sair</button>
+    </div>
+  </nav>
 
-  <script>
-    // SEGURANÇA: Se não estiver logado, volta para a pasta de login
-    if (!sessionStorage.getItem('usuarioLogado')) {
-      alert('Acesso negado. Por favor, faça login.');
-      window.location.href = '../login/index.html';
-    }
-  </script>
+  <main class="main-content">
+    <h2>Painel de Controle</h2>
 
-  <div class="card">
-    <h1>Bem-vindo ao Dashboard!</h1>
-    <p>Olá, <strong id="nomeUsuario">Usuário</strong>.</p>
-    <button class="btn-logout" id="btnLogout">Sair do Sistema</button>
-  </div>
+    <div class="actions-bar">
+      <a href="../cadastro-aluno/cadastro-aluno.html" class="btn-primary">+ Cadastrar Aluno</a>
+    </div>
 
-  <script>
-    // Exibe o nome do usuário logado
-    const dadosSession = sessionStorage.getItem('usuarioLogado');
-    if (dadosSession) {
-      const objetoUsuario = JSON.parse(dadosSession);
-      document.getElementById('nomeUsuario').textContent = objetoUsuario.nome || objetoUsuario.email;
-    }
+    <div class="cards-grid">
+      <div class="card">
+        <h3>Alunos Matriculados</h3>
+        <p id="total-alunos" style="font-size: 2rem; font-weight: bold; color: var(--secondary-color);">0</p>
+      </div>
+      <div class="card">
+        <h3>Cursos Ativos</h3>
+        <p id="total-cursos" style="font-size: 2rem; font-weight: bold; color: var(--accent-color);">0</p>
+      </div>
+    </div>
 
-    // Evento de Logout
-    document.getElementById('btnLogout').addEventListener('click', function () {
-      sessionStorage.removeItem('usuarioLogado');
-      window.location.href = '../login/index.html'; // Volta para o login
-    });
-  </script>
+    <section style="margin-top: 2rem;">
+      <h3>Últimos Alunos Cadastrados</h3>
+      <ul id="lista-alunos" style="margin-top: 1rem; background: #fff; padding: 1rem; border-radius: 8px;"></ul>
+    </section>
+  </main>
+
+  <script type="module" src="dashboard.js"></script>
 </body>
 
 </html>
