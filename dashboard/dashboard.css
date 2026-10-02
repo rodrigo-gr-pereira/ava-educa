@@ -1,4 +1,5 @@
-.navbar {
+.cabecalho {
+  margin-left: var(--sidebar-width);
   background-color: var(--primary-color);
   color: #fff;
   padding: 1rem 2rem;

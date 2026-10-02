@@ -9,25 +9,56 @@
 </head>
 
 <body>
-  <div class="form-card">
-    <h2>Cadastrar Novo Aluno</h2>
-    <form id="form-cadastro" style="margin-top: 1.5rem;">
-      <div class="form-group">
-        <label for="nome">Nome Completo</label>
-        <input type="text" id="nome" required>
-      </div>
-      <div class="form-group">
-        <label for="email">E-mail</label>
-        <input type="email" id="email" required>
-      </div>
-      <div class="form-group">
-        <label for="curso">Curso</label>
-        <select id="curso" required></select>
-      </div>
-      <button type="submit" class="btn-primary">Salvar Aluno</button>
-      <a href="../dashboard/dashboard.html" style="margin-left: 10px;">Cancelar</a>
-    </form>
-  </div>
+  <!-- Cabeçalho -->
+  <nav class="cabecalho">
+    <h1>AVA-EDUCA+</h1>
+  </nav>
+
+  <!-- Menu Lateral -->
+  <aside class="sidebar">
+    <div>
+      <nav class="sidebar-nav">
+        <a href="../dashboard/dashboard.html" class="sidebar-link">
+          Dashboard
+        </a>
+        <a href="#" class="sidebar-link disabled" tabindex="-1" aria-disabled="true">Cursos</a>
+        <a href="../cadastro-aluno/cadastro-aluno.html" class="sidebar-link active">
+          Cadastrar Aluno
+        </a>
+      </nav>
+    </div>
+
+    <div class="sidebar-footer">
+      <button id="btn-logout" class="btn-logout">Sair</button>
+    </div>
+  </aside>
+
+  <!-- Conteúdo Principal -->
+  <main class="main-content">
+    <div class="form-card">
+      <h2>Cadastrar Novo Aluno</h2>
+      <form id="form-cadastro" style="margin-top: 1.5rem;">
+        <div class="form-group">
+          <label for="nome">Nome Completo</label>
+          <input type="text" id="nome" required placeholder="Ex: Maria Silva">
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" required placeholder="Ex: maria@email.com">
+        </div>
+        <div class="form-group">
+          <label for="curso">Curso</label>
+          <select id="curso" required></select>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn-primary">Salvar Aluno</button>
+          <a href="../dashboard/dashboard.html" class="btn-cancelar">Cancelar</a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+
 
   <script type="module" src="cadastro-aluno.js"></script>
 </body>
