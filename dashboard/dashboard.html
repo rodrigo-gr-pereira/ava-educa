@@ -9,59 +9,56 @@
 </head>
 
 <body>
-  <!-- Cabeçalho -->
-  <nav class="cabecalho">
-    <h1>AVA-EDUCA+</h1>
-    <div>
-      Olá, <span id="user-name">Usuário</span>
-    </div>
-  </nav>
+  <div class="app-layout">
 
-
-  <!-- Menu Lateral -->
-  <aside class="sidebar">
-    <div>
-      <nav class="sidebar-nav">
-        <a href="../dashboard/dashboard.html" class="sidebar-link active">
-          Dashboard
-        </a>
-        <a href="#" class="sidebar-link disabled" tabindex="-1" aria-disabled="true">Cursos</a>
-        <a href="../cadastro-aluno/cadastro-aluno.html" class="sidebar-link">
-          Cadastrar Aluno
-        </a>
+    <!-- Navbar Superior -->
+    <header class="navbar">
+      <nav class="cabecalho">
+        <h1>AVA-EDUCA+</h1>
+        <div>
+          Olá, <span id="user-name">Usuário</span>
+        </div>
       </nav>
+    </header>
+    <!-- Corpo Principal (Sidebar + Conteúdo) -->
+    <div class="app-body">
+      <!-- Menu Lateral -->
+      <aside class="sidebar">
+        <div>
+          <nav class="sidebar-nav">
+            <a href="../dashboard/dashboard.html" class="sidebar-link active">
+              Dashboard
+            </a>
+            <a href="#" class="sidebar-link disabled" tabindex="-1" aria-disabled="true">Cursos</a>
+            <a href="../cadastro-aluno/cadastro-aluno.html" class="sidebar-link">
+              Cadastrar Aluno
+            </a>
+          </nav>
+        </div>
+
+        <div class="sidebar-footer">
+
+          <button id="btn-logout" class="btn-logout">Sair</button>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <div class="dashboard-header">
+          <div>
+            <h1 class="page-title">Painel Principal</h1>
+            <p class="page-subtitle">Cursos em que atua atualmente</p>
+          </div>
+          <a href="cadastro-aluno.html" class="btn-primary">+ Cadastrar Aluno</a>
+        </div>
+
+        <!-- Grelha de Cartões de Cursos -->
+        <div id="courses-grid" class="courses-grid">
+          <!-- Os cartões de curso são renderizados dinamicamente via JavaScript -->
+        </div>
+      </main>
+
     </div>
-
-    <div class="sidebar-footer">
-
-      <button id="btn-logout" class="btn-logout">Sair</button>
-    </div>
-  </aside>
-
-  <main class="main-content">
-    <h2>Painel de Controle</h2>
-
-    <div class="actions-bar">
-      <a href="../cadastro-aluno/cadastro-aluno.html" class="btn-primary">+ Cadastrar Aluno</a>
-    </div>
-
-    <div class="cards-grid">
-      <div class="card">
-        <h3>Alunos Matriculados</h3>
-        <p id="total-alunos" style="font-size: 2rem; font-weight: bold; color: var(--secondary-color);">0</p>
-      </div>
-      <div class="card">
-        <h3>Cursos Ativos</h3>
-        <p id="total-cursos" style="font-size: 2rem; font-weight: bold; color: var(--accent-color);">0</p>
-      </div>
-    </div>
-
-    <section style="margin-top: 2rem;">
-      <h3>Últimos Alunos Cadastrados</h3>
-      <ul id="lista-alunos" style="margin-top: 1rem; background: #fff; padding: 1rem; border-radius: 8px;"></ul>
-    </section>
-  </main>
-
+  </div>
   <script type="module" src="dashboard.js"></script>
 </body>
 
