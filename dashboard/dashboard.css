@@ -19,27 +19,24 @@
 .dashboard-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin-bottom: 2rem;
 }
 
 .page-title {
-  font-size: 1.6rem;
+  align-items: center;
+  font-size: 2rem;
   color: var(--text-dark);
   font-weight: 700;
 }
 
-.page-subtitle {
-  font-size: 0.95rem;
-  color: #666;
-  margin-top: 0.25rem;
-}
+
 
 /* Grelha de Cursos Responsiva */
 .courses-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
+ display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    justify-content: end; /* Alinha o bloco inteiro do grid à direita */
 }
 
 /* Cartão de Curso */
@@ -50,6 +47,7 @@
   border: 1px solid #e2e8f0;
   display: flex;
   flex-direction: column;
+  margin-left: 100px;
   overflow: hidden;
   transition: transform 0.2s, box-shadow 0.2s;
 }
