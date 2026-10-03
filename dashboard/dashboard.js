@@ -1,63 +1,57 @@
-// Dados simulados do usuário logado e seus respectivos cursos
-const loggedInUser = {
-  nome: "Ana Souza",
-  cursos: [
-    {
-      id: "C101",
-      nome: "Desenvolvimento Web Full Stack",
-      dataInicio: "02/02/2026",
-      dataFim: "30/11/2026",
-      descricao: "Curso prático sobre criação de aplicações web modernas com HTML, CSS, JavaScript e Frameworks."
-    },
-    {
-      id: "C102",
-      nome: "Gestão de Bases de Dados Relacionais",
-      dataInicio: "15/03/2026",
-      dataFim: "15/07/2026",
-      descricao: "Modelação, consultas SQL avançadas e otimização de desempenho em PostgreSQL e MySQL."
-    },
-    {
-      id: "C103",
-      nome: "Introdução à Inteligência Artificial",
-      dataInicio: "01/08/2026",
-      dataFim: "20/12/2026",
-      descricao: "Fundamentos de Machine Learning, conceitos de IA generativa e aplicações práticas."
-    }
-  ]
-};
+import { verificarAutenticacao } from '../js/auth.js';
+import { listarCursos } from '../js/cursos.js';
 
-document.addEventListener("DOMContentLoaded", () => {
-  // Exibe o nome do usuário na Navbar
-  const userNameElem = document.getElementById("user-name");
-  if (userNameElem) {
-    userNameElem.textContent = loggedInUser.nome;
+document.addEventListener('DOMContentLoaded', () => {
+  const usuario = verificarAutenticacao();
+
+  if (!usuario) {
+    return;
   }
 
-  // Renderiza os cards de curso no container
-  const coursesGrid = document.getElementById("courses-grid");
-  if (coursesGrid) {
-    coursesGrid.innerHTML = loggedInUser.cursos.map(curso => `
-      <article class="course-card">
-        <div class="course-card-header"></div>
-        <div class="course-card-body">
-          <h2 class="course-title">${curso.nome}</h2>
-          <p class="course-description">${curso.descricao}</p>
-          
-          <div class="course-dates">
-            <div class="date-item">
-              <span class="date-label">Data de Início:</span>
-              <strong class="date-value">${curso.dataInicio}</strong>
-            </div>
-            <div class="date-item">
-              <span class="date-label"> Data de Fim:</span>
-              <strong class="date-value">${curso.dataFim}</strong>
-            </div>
+  const userNameElem = document.getElementById('user-name');
+  if (userNameElem) {
+    userNameElem.textContent = usuario.nome;
+  }
+
+  const btnLogout = document.getElementById('btn-logout');
+  if (btnLogout) {
+    btnLogout.addEventListener('click', () => {
+      sessionStorage.removeItem('usuarioLogado');
+      window.location.href = '/login/login.html';
+    });
+  }
+
+  const coursesGrid = document.getElementById('courses-grid');
+  if (!coursesGrid) {
+    return;
+  }
+
+  const cursos = listarCursos(usuario);
+  if (!Array.isArray(cursos) || cursos.length === 0) {
+    coursesGrid.innerHTML = '<div class="empty-state">Nenhum curso encontrado para este usuário.</div>';
+    return;
+  }
+
+  coursesGrid.innerHTML = cursos.map(curso => `
+    <article class="course-card">
+      <div class="course-card-header"></div>
+      <div class="course-card-body">
+        <h2 class="course-title">${curso.nome}</h2>
+        <p class="course-description">${curso.descricao || 'Curso em andamento.'}</p>
+        <div class="course-dates">
+          <div class="date-item">
+            <span class="date-label">Data de Início:</span>
+            <strong class="date-value">${curso.dataInicio || '--/--/----'}</strong>
+          </div>
+          <div class="date-item">
+            <span class="date-label">Data de Fim:</span>
+            <strong class="date-value">${curso.dataFim || '--/--/----'}</strong>
           </div>
         </div>
-        <div class="course-card-footer">
-          <a href="#" class="btn-course">Acessar Curso</a>
-        </div>
-      </article>
-    `).join('');
-  }
+      </div>
+      <div class="course-card-footer">
+        <a href="#" class="btn-course">Acessar Curso</a>
+      </div>
+    </article>
+  `).join('');
 });

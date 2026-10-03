@@ -6,12 +6,14 @@
   <title>Cadastrar Aluno - AVA Educa</title>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="cadastro-aluno.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 </head>
 
 <body>
   <!-- Cabeçalho -->
   <nav class="cabecalho">
     <h1>AVA-EDUCA+</h1>
+    <span id="user-name" class="user-name">Usuário</span>
   </nav>
 
   <!-- Menu Lateral -->
@@ -61,7 +63,6 @@
                 <option value="">Selecione...</option>
                 <option value="feminino">Feminino</option>
                 <option value="masculino">Masculino</option>
-                <option value="nao_binario">Não-binário</option>
                 <option value="outro">Outro</option>
                 <option value="prefiro_nao_informar">Prefiro não informar</option>
               </select>
@@ -163,10 +164,7 @@
 
       </form>
     </div>
-    </div>
   </main>
-
-
 
   <script type="module" src="cadastro-aluno.js"></script>
 </body>
