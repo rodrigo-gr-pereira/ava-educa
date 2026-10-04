@@ -74,3 +74,18 @@
   margin-bottom: 1rem;
 }
 
+@media (max-width: 768px) {
+  .login-container {
+    min-height: 100vh;
+    padding: 1rem;
+  }
+
+  .login-card {
+    width: min(100%, 380px);
+    padding: 1.5rem;
+  }
+
+  .form-group input {
+    min-width: 0;
+  }
+}

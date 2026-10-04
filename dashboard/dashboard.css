@@ -157,3 +157,24 @@
   color: var(--primary-color, #2b3e50);
   font-weight: 600;
 }
+
+@media (max-width: 768px) {
+  .cabecalho {
+    margin-left: 0;
+    padding: 0.75rem 1rem;
+  }
+
+  .main-content {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .courses-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .course-card {
+    margin-left: 0;
+  }
+}

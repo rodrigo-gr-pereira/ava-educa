@@ -174,6 +174,7 @@ a {
 .btn-primary:hover {
   background-color: #2980b9;
 }
+
 }
 
 .sidebar-brand {
@@ -272,4 +273,47 @@ a {
 
 .btn-primary:hover {
   background-color: #2980b9;
+}
+
+@media (max-width: 768px) {
+  body {
+    min-width: 320px;
+  }
+
+  .app-body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: static;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0.5rem;
+  }
+
+  .sidebar-link {
+    flex: 1 1 140px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .sidebar-footer {
+    padding: 0.5rem 1rem;
+    border-top: 0;
+  }
+
+  .main-content,
+  .content-area {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 1rem;
+  }
 }
