@@ -89,7 +89,7 @@
   grid-column: span 2;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .cabecalho {
     margin-left: 0;
     padding: 0.75rem 1rem;

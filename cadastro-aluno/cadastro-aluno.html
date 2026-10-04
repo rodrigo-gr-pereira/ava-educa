@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastrar Aluno - AVA Educa</title>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="cadastro-aluno.css">
@@ -14,10 +15,16 @@
   <nav class="cabecalho">
     <h1>AVA-EDUCA+</h1>
      <span id="user-name" class="user-name">Usuário</span>
+    <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Abrir menu"
+      aria-controls="menu-lateral" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
 
   <!-- Menu Lateral -->
-  <aside class="sidebar">
+  <aside class="sidebar" id="menu-lateral">
     <div>
       <nav class="sidebar-nav">
         <a href="../dashboard/dashboard.html" class="sidebar-link">
@@ -166,6 +173,7 @@
     </div>
   </main>
 
+  <script src="../js/menu-mobile.js"></script>
   <script type="module" src="cadastro-aluno.js"></script>
 </body>
 
