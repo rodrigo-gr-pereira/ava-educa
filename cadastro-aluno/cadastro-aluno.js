@@ -255,6 +255,11 @@ document.addEventListener('DOMContentLoaded', () => {
   setupInputMasks();
 
   const formCadastro = document.getElementById('form-cadastro-aluno');
+
+  if (!formCadastro) {
+    return;
+  }
+
   formCadastro.addEventListener('submit', (event) => {
     event.preventDefault();
 
@@ -283,7 +288,15 @@ document.addEventListener('DOMContentLoaded', () => {
       estado: document.getElementById('estado').value.trim().toUpperCase()
     };
 
-    salvarAluno(novoAluno);
+    const cadastroRealizado = salvarAluno(novoAluno);
+
+    if (!cadastroRealizado) {
+      alert('Não foi possível cadastrar o aluno. Tente novamente.');
+      return;
+    }
+
+    formCadastro.reset();
+    limparErros();
     alert('Aluno cadastrado com sucesso!');
     window.location.href = '/dashboard/dashboard.html';
   });

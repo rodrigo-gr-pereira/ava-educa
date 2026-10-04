@@ -89,7 +89,33 @@
   grid-column: span 2;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+  .cabecalho {
+    margin-left: 0;
+    padding: 0.75rem 1rem;
+  }
+
+  .main-content {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .sidebar {
+    position: static;
+    width: 100%;
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .sidebar-link {
+    flex: 1 1 140px;
+    justify-content: center;
+    text-align: center;
+  }
+
   .form-grid {
     grid-template-columns: 1fr;
   }
