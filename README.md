@@ -1,6 +1,6 @@
 # AVA-EDUCA+ 🎓
 
-O **AVA-EDUCA+** é um Ambiente Virtual de Aprendizagem onde o usuário cadastrado pode visualizar e acompanhar os cursos nos quais está matriculado. O projeto resolve o problema de centralização de informações de matrículas e cadastro, oferecendo uma interface web intuitiva e responsiva para que gestores possam registrar novos alunos, listar os cursos disponíveis e associar estudantes aos cursos.
+O **AVA-EDUCA+** é um Ambiente Virtual de Aprendizagem onde o usuário cadastrado pode visualizar e acompanhar os cursos nos quais está matriculado. O projeto resolve o problema de centralização de informações de matrículas e cadastro, oferecendo uma interface web intuitiva e responsiva para que gestores possam registrar novos alunos, listar os cursos disponíveis.
 
 ---
 
