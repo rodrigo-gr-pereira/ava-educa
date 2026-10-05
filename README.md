@@ -23,17 +23,35 @@ Este projeto foi construído utilizando as principais tecnologias web de front-e
 
 ```text
 ava-educa-plus
-┣ 📂 css
-┃ ┗ 📜 style.css              # Estilos globais, responsividade e layout
-┣ 📂 js
-┃ ┣ 📂 dados
-┃ ┃ ┗ 📜 listagem-cursos.js   # Mock de dados iniciais dos cursos
-┃ ┣ 📜 app.js                 # Lógica principal de inicialização
-┃ ┗ 📜 cursos.js              # Funções assíncronas (Promises) e filtros
 ┣ 📂 assets
-┃ ┗ 📜 image.png              # Imagens, ícones e recursos visuais
+┃ ┗ 📂icons
+  ┗ 📂imagens
+┣ 📂 cadastro-aluno
+   ┗ 📜 cadastro-aluno.css
+   ┗ 📜 cadastro-aluno.html
+   ┗ 📜 cadastro-aluno.js
+┣ 📂 css
+   ┗ 📜 style.css              # Estilos globais, responsividade e layout
+┣ 📂 dados
+   ┗ 📜 dashboard.css
+   ┗ 📜 dashboard.html
+   ┗ 📜 dashboard.js
+┣ 📂 dashboard
+   ┗ 📜 listagem-cursos.js
+   ┗ 📜 listagem-cursos.js
+   ┗ 📜 listagem-cursos.js
+┣ 📂 js
+   ┗ 📜 Aluno.js
+   ┗ 📜 aluno.js
+   ┗ 📜 app.js
+   ┗ 📜 cursos.js
+   ┗ 📜 menu-mobile.js
+┣ 📂 login
+   ┗ 📜 login.css
+   ┗ 📜 login.html
+   ┗ 📜 login.js
 ┣ 📜 index.html               # Dashboard e listagem de cursos
-┣ 📜 cadastro.html            # Página com o formulário de registo de alunos
+┣ 📜 package.json
 ┗ 📜 README.md                # Documentação do projeto
 ```
 
