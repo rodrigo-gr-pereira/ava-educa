@@ -4,142 +4,180 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadastro de Alunos - AVA Educa</title>
+  <title>Cadastrar Aluno - AVA Educa</title>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="cadastro-aluno.css">
-
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
-  <script src="../dados/listagem-alunos.js" defer></script> <!-- Carrega o array 'listagemAlunos' primeiro -->
-
-  <!-- Scripts de Lógica e Modelos -->
-  <script src="../js/app.js" defer></script>
-  <script src="../js/Aluno.js" defer></script> <!-- Classe Aluno -->
-  <script src="../js/alunos.js" defer></script> <!-- Função cadastrarAluno -->
-  <script src="cadastro-aluno.js" defer></script> <!-- Controlador da tela -->
 </head>
 
 <body>
-  <header class="main-header">
-    <div class="system-name">AVA-EDUCA+</div>
-    <div class="user-profile">
-      <span id="headerUserName" class="user-name">Carregando...</span>
+  <div class="app-layout">
+    <header class="navbar">
+      <nav class="cabecalho">
+        <h1>AVA-EDUCA+</h1>
+        <span id="user-name" class="user-name">Usuário</span>
+        <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Abrir menu"
+          aria-controls="menu-lateral" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </header>
+
+    <div class="app-body">
+      <aside class="sidebar" id="menu-lateral">
+        <div>
+          <nav class="sidebar-nav">
+            <a href="../dashboard/dashboard.html" class="sidebar-link">
+              Dashboard
+            </a>
+            <a href="#" class="sidebar-link disabled" tabindex="-1" aria-disabled="true">Cursos</a>
+            <a href="../cadastro-aluno/cadastro-aluno.html" class="sidebar-link active">
+              Cadastrar Aluno
+            </a>
+          </nav>
+        </div>
+
+        <div class="sidebar-footer">
+          <button id="btn-logout" class="btn-logout">Sair</button>
+        </div>
+      </aside>
+
+      <main class="main-content">
+    <div class="form-card">
+      <h1 class="form-title">Cadastro de Aluno</h1>
+      <p class="form-subtitle">Preencha os dados abaixo para registrar um novo aluno no sistema.</p>
+
+      <form id="form-cadastro-aluno" novalidate>
+
+        <!-- Dados Pessoais -->
+        <fieldset class="form-section">
+          <legend>Dados Pessoais</legend>
+
+          <div class="form-grid">
+            <!-- Nome Completo -->
+            <div class="form-group full-width">
+              <label for="nome">Nome Completo <span class="required">*</span></label>
+              <input type="text" id="nome" name="nome" minlength="4" maxlength="80" required
+                placeholder="Ex: Maria Oliveira Silva">
+              <span class="error-msg" id="err-nome"></span>
+            </div>
+
+            <!-- Gênero -->
+            <div class="form-group">
+              <label for="genero">Gênero <span class="required">*</span></label>
+              <select id="genero" name="genero" required>
+                <option value="">Selecione...</option>
+                <option value="feminino">Feminino</option>
+                <option value="masculino">Masculino</option>
+                <option value="outro">Outro</option>
+                <option value="prefiro_nao_informar">Prefiro não informar</option>
+              </select>
+              <span class="error-msg" id="err-genero"></span>
+            </div>
+
+            <!-- Data de Nascimento -->
+            <div class="form-group">
+              <label for="dataNascimento">Data de Nascimento <span class="required">*</span></label>
+              <input type="text" id="dataNascimento" name="dataNascimento" placeholder="DD/MM/YYYY" maxlength="10"
+                required>
+              <span class="error-msg" id="err-dataNascimento"></span>
+            </div>
+
+            <!-- CPF -->
+            <div class="form-group">
+              <label for="cpf">CPF (somente números) <span class="required">*</span></label>
+              <input type="text" id="cpf" name="cpf" maxlength="11" placeholder="Ex: 12345678901" required>
+              <span class="error-msg" id="err-cpf"></span>
+            </div>
+
+            <!-- Telefone -->
+            <div class="form-group">
+              <label for="telefone">Telefone (somente números) <span class="required">*</span></label>
+              <input type="text" id="telefone" name="telefone" maxlength="11" placeholder="Ex: 11987654321" required>
+              <span class="error-msg" id="err-telefone"></span>
+            </div>
+
+            <!-- E-mail -->
+            <div class="form-group full-width">
+              <label for="email">E-mail <span class="required">*</span></label>
+              <input type="email" id="email" name="email" placeholder="exemplo@email.com" required>
+              <span class="error-msg" id="err-email"></span>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Endereço -->
+        <fieldset class="form-section">
+          <legend>Endereço</legend>
+
+          <div class="form-grid">
+            <!-- CEP -->
+            <div class="form-group">
+              <label for="cep">CEP (somente números) <span class="required">*</span></label>
+              <input type="text" id="cep" name="cep" maxlength="8" placeholder="Ex: 01001000" required>
+              <span class="error-msg" id="err-cep"></span>
+            </div>
+
+            <!-- Logradouro -->
+            <div class="form-group col-2">
+              <label for="logradouro">Logradouro <span class="required">*</span></label>
+              <input type="text" id="logradouro" name="logradouro" placeholder="Ex: Rua das Flores" required>
+              <span class="error-msg" id="err-logradouro"></span>
+            </div>
+
+            <!-- Número -->
+            <div class="form-group">
+              <label for="numero">Número <span class="required">*</span></label>
+              <input type="text" id="numero" name="numero" placeholder="Ex: 123" required>
+              <span class="error-msg" id="err-numero"></span>
+            </div>
+
+            <!-- Complemento -->
+            <div class="form-group">
+              <label for="complemento">Complemento <span class="optional">(Opcional)</span></label>
+              <input type="text" id="complemento" name="complemento" placeholder="Ex: Apto 42, Bloco B">
+              <span class="error-msg" id="err-complemento"></span>
+            </div>
+
+            <!-- Bairro -->
+            <div class="form-group">
+              <label for="bairro">Bairro <span class="required">*</span></label>
+              <input type="text" id="bairro" name="bairro" placeholder="Ex: Centro" required>
+              <span class="error-msg" id="err-bairro"></span>
+            </div>
+
+            <!-- Cidade -->
+            <div class="form-group">
+              <label for="cidade">Cidade <span class="required">*</span></label>
+              <input type="text" id="cidade" name="cidade" placeholder="Ex: São Paulo" required>
+              <span class="error-msg" id="err-cidade"></span>
+            </div>
+
+            <!-- Estado -->
+            <div class="form-group">
+              <label for="estado">Estado (UF) <span class="required">*</span></label>
+              <input type="text" id="estado" name="estado" maxlength="2" placeholder="Ex: SP"
+                style="text-transform: uppercase;" required>
+              <span class="error-msg" id="err-estado"></span>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Ações -->
+        <div class="form-actions">
+          <button type="submit" class="btn-primary btn-save">Salvar</button>
+        </div>
+
+      </form>
     </div>
-  </header>
+      </main>
+    </div>
+  </div>
 
-  <aside>
-    <nav class="sidebar">
-      <!-- Caminhos relativos partindo de /dashboard ou /cadastro-aluno -->
-      <a href="../dashboard/dashboard.html" class="nav-btn">Dashboard</a>
-
-      <!-- Botão desabilitado conforme requisito -->
-      <button class="nav-btn" disabled>Cursos</button>
-
-      <a href="../cadastro-aluno/cadastro-aluno.html" class="nav-btn">Cadastro de Alunos</a>
-
-      <!-- Botão de Sair com ID para capturar o clique no JS -->
-      <button id="btnSair" class="nav-btn nav-btn-exit">Sair</button>
-    </nav>
-  </aside>
-
-  <main class="dashboard-content">
-    <h1>Cadastro de Aluno</h1>
-    <p class="subtitle">Preencha todas as informações obrigatórias para registrar um novo estudante.</p>
-
-    <div id="feedbackMessage" class="feedback-banner" style="display: none;"></div>
-
-    <form id="formCadastroAluno" class="student-form" novalidate>
-      <fieldset>
-        <legend>Dados Pessoais</legend>
-
-        <div class="form-group">
-          <label for="nomeCompleto">Nome Completo *</label>
-          <input type="text" id="nomeCompleto" required minlength="4" maxlength="80"
-            placeholder="Digite o nome completo">
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="genero">Gênero *</label>
-            <select id="genero" required>
-              <option value="" disabled selected>Selecione o gênero...</option>
-              <option value="Masculino">Masculino</option>
-              <option value="Feminino">Feminino</option>
-              <option value="Outro">Outro</option>
-              <option value="Não informado">Prefiro não responder</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="dataNascimento">Data de Nascimento *</label>
-            <input type="date" id="dataNascimento" required>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="cpf">CPF (Apenas números) *</label>
-            <input type="number" id="cpf" required placeholder="00000000000">
-          </div>
-
-          <div class="form-group">
-            <label for="telefone">Telefone (Apenas números) *</label>
-            <input type="number" id="telefone" required placeholder="DDD999999999">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="email">E-mail *</label>
-          <input type="email" id="email" required placeholder="exemplo@email.com">
-        </div>
-      </fieldset>
-
-      <fieldset>
-        <legend>Endereço</legend>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="cep">CEP (Apenas números) *</label>
-            <input type="number" id="cep" required placeholder="00000000">
-          </div>
-          <div class="form-group flex-2">
-            <label for="logradouro">Logradouro *</label>
-            <input type="text" id="logradouro" required placeholder="Rua, Avenida, etc.">
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="numero">Número *</label>
-            <input type="number" id="numero" required placeholder="123">
-          </div>
-          <div class="form-group flex-2">
-            <label for="complemento">Complemento</label>
-            <input type="text" id="complemento" placeholder="Apto, Bloco, Casa (Opcional)">
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="bairro">Bairro *</label>
-            <input type="text" id="bairro" required placeholder="Bairro">
-          </div>
-          <div class="form-group">
-            <label for="cidade">Cidade *</label>
-            <input type="text" id="cidade" required placeholder="Cidade">
-          </div>
-          <div class="form-group">
-            <label for="estado">Estado *</label>
-            <input type="text" id="estado" required placeholder="Estado">
-          </div>
-        </div>
-      </fieldset>
-
-      <div class="form-actions">
-        <button type="submit" id="btnSalvar" class="btn-primary">Salvar</button>
-      </div>
-    </form>
-  </main>
+  <script src="../js/menu-mobile.js"></script>
+  <script type="module" src="cadastro-aluno.js"></script>
 </body>
 
 </html>

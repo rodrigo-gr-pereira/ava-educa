@@ -1,17 +1,6 @@
-// dados/listagem-usuarios.js
-
-// Lista global de usuários cadastrados no sistema para simular o banco de dados
-const usuarios = [
-    {
-        id: 1,
-        nome: "Fulano de Tal",
-        email: "teste@educa.com",
-        senha: "123456"
-    },
-    {
-        id: 2,
-        nome: "Ana Souza",
-        email: "ana@educa.com",
-        senha: "abc123"
-    }
+export const usuariosIniciais = [
+  { id: 1, nome: "Professor Silva", email: "admin@ava.com", senha: "123" },
+  { id: 2, nome: "Teste Educa", email: "teste@educa.com", senha: "123456" },
+  { id: 3, nome: "Fulano de Tal", email: "fulano@ava.com", senha: "123456" },
+  { id: 4, nome: "Ana Souza", email: "ana@ava.com", senha: "123456" }
 ];

@@ -1,38 +1,64 @@
+import { login } from '../js/auth.js';
+
 document.addEventListener('DOMContentLoaded', () => {
-    const loginForm = document.getElementById('loginForm');
-    const emailInput = document.getElementById('email');
-    const senhaInput = document.getElementById('senha');
-    const errorMessage = document.getElementById('errorMessage');
-    const linkEsqueceuSenha = document.getElementById('linkEsqueceuSenha');
+  if (sessionStorage.getItem('usuarioLogado')) {
+    window.location.href = '/dashboard/dashboard.html';
+    return;
+  }
 
-    // Manipula o envio do formulário de login
-    loginForm.addEventListener('submit', (event) => {
-        event.preventDefault(); // Evita o recarregamento da página
+  const loginCard = document.querySelector('.login-card');
+  const formLogin = document.getElementById('form-login');
+  const emailInput = document.getElementById('email');
+  const senhaInput = document.getElementById('senha');
+  const erroContainer = document.getElementById('erro-container');
+  const linkRecuperarSenha = document.getElementById('link-recuperar-senha');
 
-        const email = emailInput.value.trim();
-        const senha = senhaInput.value;
+  if (!loginCard || !formLogin || !emailInput || !senhaInput || !erroContainer) {
+    return;
+  }
 
-        // O HTML 'required' já garante o preenchimento, mas a chamada inicia aqui
-        const usuarioLogado = login(email, senha);
+  const limparFeedbackErro = () => {
+    emailInput.classList.remove('input-erro');
+    senhaInput.classList.remove('input-erro');
+    erroContainer.hidden = true;
+  };
 
-        if (usuarioLogado) {
-            // Oculta mensagem de erro caso estivesse visível
-            errorMessage.classList.add('hidden');
-            
-            // Salva os dados do usuário na sessionStorage como string JSON
-            sessionStorage.setItem('usuarioLogado', JSON.stringify(usuarioLogado));
-            
-            // Redireciona para a página de Dashboard
-            window.location.href = '../dashboard/dashboard.html';
-        } else {
-            // Exibe o feedback visual de dados inválidos
-            errorMessage.classList.remove('hidden');
-        }
+  emailInput.addEventListener('input', limparFeedbackErro);
+  senhaInput.addEventListener('input', limparFeedbackErro);
+
+  formLogin.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const email = emailInput.value.trim();
+    const senha = senhaInput.value;
+    const autenticado = login(email, senha);
+
+    if (autenticado) {
+      window.location.href = '/dashboard/dashboard.html';
+      return;
+    }
+
+    emailInput.classList.add('input-erro');
+    senhaInput.classList.add('input-erro');
+    erroContainer.textContent = 'E-mail ou senha incorretos.';
+    erroContainer.hidden = false;
+
+    loginCard.classList.remove('shake');
+    void loginCard.offsetWidth;
+    loginCard.classList.add('shake');
+  });
+
+  if (linkRecuperarSenha) {
+    linkRecuperarSenha.addEventListener('click', (e) => {
+      e.preventDefault();
+      const emailDigitado = emailInput.value.trim();
+
+      if (emailDigitado) {
+        window.alert(`Instruções para recuperação de senha foram enviadas para ${emailDigitado}.`);
+        return;
+      }
+
+      window.alert('Digite seu e-mail para receber as instruções de recuperação.');
     });
-
-    // Alerta para a funcionalidade em construção de "Esqueceu sua senha"
-    linkEsqueceuSenha.addEventListener('click', (event) => {
-        event.preventDefault();
-        window.alert("Esta funcionalidade está em construção.");
-    });
+  }
 });

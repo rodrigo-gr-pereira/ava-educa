@@ -1,249 +1,145 @@
-
-/* Estilo Base do Banner de Feedback */
-.feedback-banner {
-    padding: 15px 20px;
-    margin-bottom: 20px;
-    border-radius: 6px;
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 1.4;
-    display: flex;
-    align-items: center;
-    animation: fadeIn 0.3s ease-in-out;
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
 }
 
-/* Estado de Sucesso */
-.feedback-banner.success {
-    background-color: #d1fae5;
-    color: #065f46;
-    border: 1px solid #10b981;
+.card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-/* Estado de Erro / Validação */
-.feedback-banner.error {
-    background-color: #fee2e2;
-    color: #991b1b;
-    border: 1px solid #ef4444;
+.actions-bar {
+  margin: 1.5rem 0;
+  display: flex;
+  gap: 1rem;
 }
 
-/* ==========================================================================
-   ESTRUTURA DA ÁREA DE CONTEÚDO
-   ========================================================================== */
-.content-area {
-    padding: 40px;
-    background-color: var(--bg-main);
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    color: var(--text-main);
+
+
+ /* Formulário de Cadastro de Aluno */
+/* ESTILOS DO FORMULÁRIO DE CADASTRO DE ALUNO */
+
+.form-card {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.content-area h1 {
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--text-main);
-    margin: 0 0 6px 0;
-    letter-spacing: -0.5px;
+.form-title {
+  font-size: 1.6rem;
+  color: var(--primary-color);
+  margin-bottom: 0.25rem;
 }
 
-.content-area .subtitle {
-    font-size: 15px;
-    color: var(--text-muted);
-    margin: 0 0 35px 0;
+.form-subtitle {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
 }
 
-/* ==========================================================================
-   CARD DO FORMULÁRIO (STUDENT FORM)
-   ========================================================================== */
-.student-form {
-    max-width: 850px;
-    background-color: var(--bg-card);
-    padding: 35px;
-    border-radius: var(--radius);
-    border: 1px solid var(--border-color);
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.02), 
-                0 8px 10px -6px rgba(0, 0, 0, 0.02);
+.form-section {
+  border: 1px solid #e2e8f0;
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
-/* Agrupamento por Fieldset */
-fieldset {
-    border: none;
-    padding: 0;
-    margin: 0 0 35px 0;
+.form-section legend {
+  font-weight: 700;
+  color: var(--primary-color);
+  padding: 0 0.5rem;
+  font-size: 1rem;
 }
 
-fieldset:last-of-type {
-    margin-bottom: 20px;
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
 }
 
-/* Título de cada Seção */
-legend {
-    font-size: 16px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: var(--primary-color);
-    border-bottom: 1px solid var(--border-color);
-    width: 100%;
-    padding-bottom: 10px;
-    margin-bottom: 22px;
+.full-width {
+  grid-column: span 3;
 }
 
-/* ==========================================================================
-   ORGANIZAÇÃO DE LINHAS E COLUNAS (GRID & FLEX)
-   ========================================================================== */
+.col-2 {
+  grid-column: span 2;
+}
+
+@media (max-width: 1024px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .full-width, .col-2 {
+    grid-column: span 1;
+  }
+}
+
 .form-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 18px;
-    flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Grid Inteligente para Linhas do Formulário */
-.form-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 0.35rem;
 }
 
-/* Ajuste específico para misturar tamanhos na mesma linha (ex: CEP pequeno e Logradouro grande) */
-@media (min-width: 600px) {
-    .form-row-unequal {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        gap: 20px;
-    }
-    
-    .form-row-trio {
-        display: grid;
-        grid-template-columns: 2fr 2fr 1fr;
-        gap: 20px;
-    }
+.required {
+  color: #e53e3e;
 }
 
-/* ==========================================================================
-   INPUTS, SELECTIONS E LABELS
-   ========================================================================== */
-label {
-    font-size: 14px;
-    font-weight: 500;
-    color: #475569;
-    margin-bottom: 8px;
+.optional {
+  color: #a0aec0;
+  font-size: 0.75rem;
+  font-weight: normal;
 }
 
-/* Inputs e selects unificados */
-input, select {
-    padding: 12px 14px;
-    font-size: 14.5px;
-    font-family: inherit;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-    background-color: var(--input-bg);
-    color: var(--text-main);
-    outline: none;
-    transition: var(--transition);
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.01);
+.form-group input,
+.form-group select {
+  padding: 0.65rem 0.8rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-/* Placeholder discreto */
-input::placeholder {
-    color: #94a3b8;
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 3px rgba(59, 158, 219, 0.15);
 }
 
-/* Efeito de foco/seleção animado */
-input:focus, select:focus {
-    border-color: var(--input-focus);
-    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12),
-                inset 0 1px 2px rgba(0, 0, 0, 0.01);
-    background-color: #ffffff;
+.form-group input.is-invalid,
+.form-group select.is-invalid {
+  border-color: #e53e3e;
+  background-color: #fff5f5;
 }
 
-/* Remove as setas no Chrome, Safari, Edge e Opera */
-input[type=number]::-webkit-outer-spin-button,
-input[type=number]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+.error-msg {
+  color: #e53e3e;
+  font-size: 0.75rem;
+  margin-top: 0.3rem;
+  min-height: 1rem;
 }
-
-/* Remove as setas no Firefox */
-input[type=number] {
-    -moz-appearance: textfield;
-}
-
-/* Estilização especial para inputs de data nativos */
-input[type="date"] {
-    color: #475569;
-}
-input[type="date"]:focus {
-    color: var(--text-main);
-}
-
 
 .form-actions {
-    display: flex;
-    justify-content: flex-end;
-    border-top: 1px solid var(--border-color);
-    padding-top: 25px;
-    margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
 }
 
-.btn-primary {
-    background-color: var(--primary-color);
-    color: #ffffff;
-    border: none;
-    padding: 14px 40px;
-    font-size: 15px;
-    font-weight: 600;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: var(--transition);
-    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
-}
-
-.btn-primary:hover {
-    background-color: var(--primary-hover);
-    transform: translateY(-1px);
-    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
-}
-
-.btn-primary:active {
-    transform: translateY(1px);
-}
-
-
-.feedback-banner {
-    max-width: 850px;
-    padding: 16px 20px;
-    margin-bottom: 25px;
-    border-radius: 8px;
-    font-size: 14.5px;
-    font-weight: 500;
-    line-height: 1.5;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.feedback-banner.success {
-    background-color: #f0fdf4;
-    color: #166534;
-    border: 1px solid #bbf7d0;
-    box-shadow: 0 4px 6px -1px rgba(22, 101, 52, 0.05);
-}
-
-.feedback-banner.error {
-    background-color: #fef2f2;
-    color: #991b1b;
-    border: 1px solid #fecaca;
-    box-shadow: 0 4px 6px -1px rgba(153, 27, 27, 0.05);
-}
-
-@keyframes slideDown {
-    from { opacity: 0; transform: translateY(-12px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Animação suave de surgimento */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+.btn-save {
+  padding: 0.75rem 2.5rem;
+  font-size: 1rem;
 }

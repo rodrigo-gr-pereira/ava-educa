@@ -11,34 +11,31 @@
 
 <body>
   <div class="login-container">
-    <form id="loginForm">
-      <h2>Acessar AVA Educa</h2>
+    <div class="login-card">
+      <h2>AVA Educa</h2>
+      <p style="margin-bottom: 1.5rem; color: #666;">Acesse sua conta</p>
 
-      <div class="input-group">
-        <label for="email">E-mail</label>
-        <input type="email" id="email" required placeholder="Digite seu e-mail">
-      </div>
+      <div id="erro-container" class="erro-msg" hidden></div>
 
-      <div class="input-group">
-        <label for="senha">Senha</label>
-        <input type="password" id="senha" required placeholder="Digite sua senha">
-      </div>
+      <form id="form-login" novalidate>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" required placeholder="Digite seu e-mail">
+        </div>
 
-      <!-- Feedback visual de erro oculto por padrão -->
-      <div id="errorMessage" class="error-message hidden">
-        E-mail ou senha incorretos. Tente novamente.
-      </div>
+        <div class="form-group">
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" required placeholder="Digite sua senha">
+        </div>
 
-      <button type="submit" id="btnEntrar">Entrar</button>
-
-      <a href="#" id="linkEsqueceuSenha">Esqueceu sua senha?</a>
-    </form>
+        <div class="form-password-dead">
+          <a href="#" id="link-recuperar-senha" class="link-esqueci-senha">Esqueceu a senha?</a>
+        </div>
+        <button type="submit" class="btn-primary" style="width: 100%;">Entrar</button>
+      </form>
+    </div>
   </div>
-
-  <!-- Scripts necessários para a autenticação -->
-  <script src="../dados/listagem-usuarios.js"></script>
-  <script src="../js/auth.js"></script>
-  <script src="login.js"></script>
+  <script type="module" src="login.js"></script>
 </body>
 
 </html>

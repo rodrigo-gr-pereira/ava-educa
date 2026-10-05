@@ -1,26 +1,23 @@
-// dados/listagem-cursos.js
-
-// Lista global de cursos simulando a base de dados
-const cursos = [
-    {
-        id: 101,
-        nome: "Desenvolvimento Web com JavaScript Vanilla",
-        dataInicio: "2026-02-10",
-        dataFim: "2026-06-20",
-        usuarioId: 1 // Vinculado ao usuário Fulano de Tal (id: 1)
-    },
-    {
-        id: 102,
-        nome: "Banco de Dados Relacionais e Não-Relacionais",
-        dataInicio: "2026-03-01",
-        dataFim: "2026-07-15",
-        usuarioId: 1 // Vinculado ao usuário Fulano de Tal (id: 1)
-    },
-    {
-        id: 103,
-        nome: "Arquitetura de Sistemas e Design Patterns",
-        dataInicio: "2026-05-12",
-        dataFim: "2026-09-30",
-        usuarioId: 2 // Vinculado à usuária Ana Souza (id: 2)
-    }
+export const cursosIniciais = [
+  {
+    id: 101,
+    nome: "Desenvolvimento Web Fullstack",
+    dataInicio: "02/02/2026",
+    dataFim: "30/11/2026",
+    descricao: "Curso prático sobre criação de aplicações web modernas com HTML, CSS, JavaScript e Frameworks."
+  },
+  {
+    id: 102,
+    nome: "Gestão de Bases de Dados Relacionais",
+    dataInicio: "15/03/2026",
+    dataFim: "15/07/2026",
+    descricao: "Modelação, consultas SQL avançadas e otimização de desempenho em PostgreSQL e MySQL."
+  },
+  {
+    id: 103,
+    nome: "Introdução à Inteligência Artificial",
+    dataInicio: "01/08/2026",
+    dataFim: "20/12/2026",
+    descricao: "Fundamentos de Machine Learning, conceitos de IA generativa e aplicações práticas."
+  }
 ];

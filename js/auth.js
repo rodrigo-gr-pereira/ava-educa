@@ -1,23 +1,47 @@
-/**
- * Valida as credenciais do usuário com base nos dados do sistema.
- * Mantém compatibilidade com credenciais antigas de teste.
- */
-function login(usuario, senha) {
-    // Credenciais de teste antigas, mantidas para compatibilidade
-if (usuario === "teste@email.com" && senha === "123456") {
-    return {
-        id: 0,
-        nome: "Usuário Teste",
-        email: usuario,
-        perfil: "teste"
-        };
+import { usuariosIniciais } from '../dados/listagem-usuarios.js';
+
+export function login(usuario, senha) {
+  const usuarioEncontrado = usuariosIniciais.find(
+    u => u.email.toLowerCase() === String(usuario).trim().toLowerCase() && u.senha === String(senha)
+  );
+
+  if (usuarioEncontrado) {
+    const { senha: _, ...dadosSessao } = usuarioEncontrado;
+    sessionStorage.setItem('usuarioLogado', JSON.stringify(dadosSessao));
+    return true;
+  }
+
+  return false;
 }
 
-if (typeof usuarios === 'undefined') {
-    console.error("A lista de usuários não foi carregada corretamente.");
-    return null;
-    }
+export function verificarSessaoInicial() {
+  const usuario = sessionStorage.getItem('usuarioLogado');
+  if (usuario) {
+    window.location.href = '/dashboard/dashboard.html';
+    return;
+  }
 
-const usuarioEncontrado = usuarios.find(user => user.email === usuario && user.senha === senha);
-return usuarioEncontrado || null;
+  window.location.href = '/login/login.html';
+}
+
+export function verificarAutenticacao() {
+  const usuarioLogado = sessionStorage.getItem('usuarioLogado');
+
+  if (!usuarioLogado) {
+    window.location.href = '/login/login.html';
+    return null;
+  }
+
+  try {
+    return JSON.parse(usuarioLogado);
+  } catch (error) {
+    sessionStorage.removeItem('usuarioLogado');
+    window.location.href = '/login/login.html';
+    return null;
+  }
+}
+
+export function logout() {
+  sessionStorage.removeItem('usuarioLogado');
+  window.location.href = '/login/login.html';
 }

@@ -1,12 +1,14 @@
-const currentPath = window.location.pathname;
-const isRootPage = currentPath === '/' || currentPath.endsWith('/index.html');
-const isProtectedPage = currentPath.includes('/dashboard/') || currentPath.includes('/cadastro-aluno/');
+import { verificarAutenticacao, logout } from './auth.js';
 
-if (isRootPage) {
-    window.location.href = '/login/login.html';
-  
-}
+document.addEventListener('DOMContentLoaded', () => {
+  const user = verificarAutenticacao();
+  const userNameEl = document.getElementById('user-name');
+  if (userNameEl && user) {
+    userNameEl.textContent = user.nome;
+  }
 
-if (isProtectedPage && !sessionStorage.getItem('usuarioLogado')) {
-    window.location.href = '/login/login.html';
-}
+  const btnLogout = document.getElementById('btn-logout');
+  if (btnLogout) {
+    btnLogout.addEventListener('click', logout);
+  }
+});

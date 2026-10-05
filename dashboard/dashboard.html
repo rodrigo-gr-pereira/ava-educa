@@ -6,45 +6,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard - AVA Educa</title>
   <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="dashboard.css">
-  <script src="../js/app.js" defer></script>
-  <script src="../dados/listagem-cursos.js" defer></script>
-  <script src="../js/cursos.js" defer></script>
-  <script src="dashboard.js" defer></script>
 </head>
 
 <body>
-  <header class="main-header">
-    <div class="system-name">AVA-EDUCA+</div>
-    <div class="user-profile">
-      <span id="headerUserName" class="user-name">Carregando...</span>
-    </div>
-  </header>
 
-  <aside>
-    <nav class="sidebar">
-      <!-- Caminhos relativos partindo de /dashboard ou /cadastro-aluno -->
-      <a href="../dashboard/dashboard.html" class="nav-btn">Dashboard</a>
+  <script>
+    // SEGURANÇA: Se não estiver logado, volta para a pasta de login
+    if (!sessionStorage.getItem('usuarioLogado')) {
+      alert('Acesso negado. Por favor, faça login.');
+      window.location.href = '../login/index.html';
+    }
+  </script>
 
-      <!-- Botão desabilitado conforme requisito -->
-      <button class="nav-btn" disabled>Cursos</button>
+  <div class="card">
+    <h1>Bem-vindo ao Dashboard!</h1>
+    <p>Olá, <strong id="nomeUsuario">Usuário</strong>.</p>
+    <button class="btn-logout" id="btnLogout">Sair do Sistema</button>
+  </div>
 
-      <a href="../cadastro-aluno/cadastro-aluno.html" class="nav-btn">Cadastro de Alunos</a>
+  <script>
+    // Exibe o nome do usuário logado
+    const dadosSession = sessionStorage.getItem('usuarioLogado');
+    if (dadosSession) {
+      const objetoUsuario = JSON.parse(dadosSession);
+      document.getElementById('nomeUsuario').textContent = objetoUsuario.nome || objetoUsuario.email;
+    }
 
-      <!-- Botão de Sair com ID para capturar o clique no JS -->
-      <button id="btnSair" class="nav-btn nav-btn-exit">Sair</button>
-    </nav>
-  </aside>
-
-  <main class="dashboard-content">
-    <div class="dashboard-header">
-      <h1>Meus Cursos</h1>
-      <p>Confira abaixo as turmas e cursos em que você atua.</p>
-    </div>
-
-    <div id="cardsContainer" class="cards-grid">
-    </div>
-  </main>
+    // Evento de Logout
+    document.getElementById('btnLogout').addEventListener('click', function () {
+      sessionStorage.removeItem('usuarioLogado');
+      window.location.href = '../login/index.html'; // Volta para o login
+    });
+  </script>
 </body>
 
 </html>
