@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  const cursos = listarCursos(usuario);
+  const cursos = listarCursos();
   if (!Array.isArray(cursos) || cursos.length === 0) {
     coursesGrid.innerHTML = '<div class="empty-state">Nenhum curso encontrado para este usuário.</div>';
     return;
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <article class="course-card">
       <div class="course-card-header"></div>
       <div class="course-card-body">
-        <h2 class="course-title">${curso.nome}</h2>
+        <h2 class="course-title">${curso.nome || curso.titulo || 'Curso sem título'}</h2>
         <p class="course-description">${curso.descricao || 'Curso em andamento.'}</p>
         <div class="course-dates">
           <div class="date-item">
